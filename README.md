@@ -201,6 +201,19 @@ let g:fzf_vim.tags_command = 'ctags -R'
 let g:fzf_vim.commands_expect = 'alt-enter,ctrl-x'
 ```
 
+#### Preview placeholders
+
+`fzf#vim#with_preview()` uses `{}` as the default preview placeholder, which is
+substituted by the selected item in the preview command. You can override it in
+spec dictionaries when a command needs a different field, for example:
+
+```vim
+call fzf#vim#files('', fzf#vim#with_preview({'placeholder': '{1}'}))
+```
+
+`preview.rb` is kept for backward compatibility, but the supported preview script
+is `preview.sh`.
+
 #### Command-level fzf options
 
 You can set fzf options for each command by setting
@@ -338,6 +351,13 @@ You can just omit the spec argument if you only want the previewer.
 command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 ```
+
+The default preview placeholder is `{}`, which is replaced with the selected
+item. If a command needs a different field, set the `placeholder` key in the
+spec, for example `{'placeholder': '{1}'}`.
+
+For compatibility, [bin/preview.rb](bin/preview.rb) remains available, but the
+supported preview script is [bin/preview.sh](bin/preview.sh).
 
 #### Example: `git grep` wrapper
 

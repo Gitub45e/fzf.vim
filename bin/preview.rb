@@ -1,3 +1,3 @@
 #!/usr/bin/env ruby
 
-puts 'preview.rb is deprecated. Use preview.sh instead.'
+puts 'preview.rb is kept for backward compatibility; use preview.sh instead.'

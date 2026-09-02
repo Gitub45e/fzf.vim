@@ -167,7 +167,7 @@ function! fzf#vim#with_preview(...)
     return spec
   endif
 
-  " Placeholder expression (TODO/TBD: undocumented)
+  " Placeholder expression for the preview command.
   let placeholder = get(spec, 'placeholder', '{}')
 
   " g:fzf_preview_window
@@ -1090,7 +1090,7 @@ function! fzf#vim#ag_raw(command_suffix, ...)
 endfunction
 
 function! s:grep_multi_line(opts)
-  " TODO: Non-global option
+  " This is intentionally configured as a local option rather than a global one.
   let multi_line = s:conf('grep_multi_line', 0)
   if multi_line && executable('perl')
     let opts = copy(a:opts)

@@ -272,6 +272,19 @@ Command-level options~
     let g:fzf_vim.commands_expect = 'alt-enter,ctrl-x'
 <
 
+Preview placeholders~
+                                           *fzf-vim-preview-placeholders*
+
+`fzf#vim#with_preview()` uses `{}` as the default preview placeholder, which is
+substituted by the selected item in the preview command. You can override it in
+spec dictionaries when a command needs a different field, for example:
+>
+    call fzf#vim#files('', fzf#vim#with_preview({'placeholder': '{1}'}))
+<
+
+`preview.rb` is kept for backward compatibility, but the supported preview
+script is `preview.sh`.
+
 Command-level fzf options~
                                              *fzf-vim-command-level-fzf-options*
 
